@@ -1,0 +1,30 @@
+{
+  "name": "save-day-exporter",
+  "version": "1.0.0",
+  "description": "Browser extension to export all bookmarks from save.day as JSON",
+  "main": "background.js",
+  "scripts": {
+    "lint": "eslint . --ext .js --max-warnings 0 || true",
+    "format": "prettier --write .",
+    "check-format": "prettier --check .",
+    "test": "echo \"No tests configured. Run lint/format instead.\" && exit 0",
+    "package": "zip -r ../save-day-exporter-$npm_package_version.zip . -x node_modules/** -x .git/**"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vishalxtyagi/save-day-exporter"
+  },
+  "author": {
+    "name": "Vishal Tyagi",
+    "email": "vishaltyagi.sde@gmail.com",
+    "url": "https://github.com/vishalxtyagi"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "prettier": "^2.0.0"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "Save.day Bookmark Exporter",
+  "version": "1.0",
+  "description": "Export all your bookmarks from save.day with one click",
+  "author": "Vishal Tyagi <vishaltyagi.sde@gmail.com>",
+  "homepage_url": "https://github.com/vishalxtyagi/save-day-exporter",
+  "permissions": [
+    "cookies",
+    "https://api.save.day/*",
+    "https://app.save.day/*",
+    "https://*.save.day/*",
+    "<all_urls>"
+  ],
+  "browser_action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": "icon.png"
+  },
+  "icons": {
+    "48": "icon.png",
+    "96": "icon.png"
+  }
+}
