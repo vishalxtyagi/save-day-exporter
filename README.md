@@ -1,58 +1,63 @@
 # Save.day Bookmark Exporter
 
-Export all your Save.day bookmarks as a single JSON file. Minimal, privacy-focused browser extension that fetches all your Save.day saved items (with pagination) and exports them with metadata.
+<p align="center">
+	<a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License"/></a>
+	<a href="https://github.com/vishalxtyagi/save-day-exporter/actions"><img src="https://github.com/vishalxtyagi/save-day-exporter/actions/workflows/ci.yml/badge.svg" alt="CI"/></a>
+	<a href="https://github.com/vishalxtyagi/save-day-exporter/releases"><img src="https://img.shields.io/github/v/release/vishalxtyagi/save-day-exporter" alt="Release"/></a>
+	<a href="https://github.com/vishalxtyagi/save-day-exporter/issues"><img src="https://img.shields.io/github/issues/vishalxtyagi/save-day-exporter" alt="Issues"/></a>
+	<a href="https://github.com/vishalxtyagi/save-day-exporter/graphs/contributors"><img src="https://img.shields.io/github/contributors/vishalxtyagi/save-day-exporter" alt="Contributors"/></a>
+	<a href="https://github.com/vishalxtyagi/save-day-exporter"><img src="https://img.shields.io/github/languages/top/vishalxtyagi/save-day-exporter" alt="Top language"/></a>
+</p>
+
+Export all your Save.day bookmarks as a single JSON file. A small, privacy-focused browser extension that fetches your saved items (paginated) and exports them with metadata.
 
 ## What's included
 
 - Extension source (manifest, popup UI, background placeholder)
-- Export logic that iterates through pages of bookmarks
-- Anchor-based download fallback (no extra permissions required)
-- ESLint and Prettier configs plus a CI workflow for lint/format checks
+- Export logic with pagination and a robust anchor-download fallback
+- Lightweight dev tooling: ESLint, Prettier and a CI workflow
 
-## Quickstart (Developer)
+## Quickstart (developer)
 
-1. Clone the repository:
+### 1) Clone
 
 ```bash
 git clone https://github.com/vishalxtyagi/save-day-exporter.git
-cd save-day-exporter
 ```
 
-2. Install dev dependencies (optional, for lint/format):
+### 2) Install (optional, for lint/format)
 
 ```bash
+cd save-day-exporter
 npm install
 ```
 
-3. Load in Firefox (temporary) or Chrome (developer mode):
+### 3) Load in your browser
 
-- Firefox: go to `about:debugging` → "This Firefox" → "Load Temporary Add-on" → select `manifest.json`.
-- Chrome/Chromium: go to `chrome://extensions/` → enable "Developer mode" → "Load unpacked" → select the project folder.
+- Firefox (temporary):
 
-4. Open `https://app.save.day`, log in, then open the extension popup and click "Export All Bookmarks".
+  ```
+  about:debugging → "This Firefox" → "Load Temporary Add-on" → select manifest.json
+  ```
+
+- Chrome/Chromium (dev mode):
+
+  ```
+  chrome://extensions/ → enable "Developer mode" → "Load unpacked" → select the project folder
+  ```
+
+### 4) Try it
+
+1. Open `https://app.save.day` and log in.
+2. Open the extension popup and click **Export**.
 
 ## Commands
 
-- npm run lint — run ESLint
-- npm run format — format code with Prettier
-- npm run check-format — verify Prettier formatting
-- npm run package — create a zip (requires `zip` on PATH)
+- `npm run lint` — run ESLint
+- `npm run format` — format code with Prettier
+- `npm run check-format` — verify Prettier formatting
+- `npm run package` — create a zip of the extension (requires `zip`)
 
-## Publishing to GitHub
+## Security & privacy
 
-1. Add your repository URL and author in `package.json` and update `manifest.json` homepage/author fields.
-2. Push the repo to GitHub and create a release. Attach the packaged zip if you like (created with `npm run package`).
-3. If publishing to Mozilla Add-ons or Chrome Web Store, review their policies and follow their packaging/signing steps.
-
-## Contributing
-
-PRs are welcome. Keep changes small and include a brief description. The CI checks lint/format on PRs.
-
-## Security & Privacy
-
-- This extension reads cookies for `app.save.day` (to obtain the token) and uses the site API to fetch bookmarks only. No data is sent to third-party servers.
-- The exported JSON is generated locally in the browser and downloaded to the user's machine.
-
-## License
-
-MIT — see `LICENSE`.
+- The extension reads the `app.save.day` cookie to obtain an auth token and then calls the Save.day API to fetch bookmarks. All export logic runs locally in the browser; exported files are downloaded to the user's machine.
